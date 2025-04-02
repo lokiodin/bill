@@ -1,4 +1,6 @@
 {
+  "homepage": "https://lokiodin.github.io/bill/",
+  "name": "bill",
   "dependencies": {
     "react": "^18.0.0",
     "react-dom": "^18.0.0",

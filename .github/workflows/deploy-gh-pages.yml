@@ -1,0 +1,32 @@
+name: Deploy App on GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'  # ou la version de Node.js que vous utilisez
+
+      - name: Install Dependencies
+        run: npm install # ou yarn install ou pnpm install
+
+      - name: Build App
+        run: npm run build  # ou yarn build ou pnpm build
+
+      - name: Deploy on GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: build   # Le dossier contenant les fichiers à déployer
+          branch: gh-pages # La branche sur laquelle déployer
+          clean: true      # Supprimer les anciens fichiers dans la branche gh-pages
+          token: ${{ secrets.DEPLOY_GHPAGE_TOKEN }}
