@@ -28,7 +28,7 @@ jobs:
       - name: Deploy on GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          GITHUB_TOKEN: ${{ secrets.DEPLOY_GHPAGE_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           folder: build  
           branch: gh-pages
           clean: true
